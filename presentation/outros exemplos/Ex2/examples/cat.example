@@ -1,0 +1,29 @@
+import React from "react";
+import {Heading} from "src";
+
+export default class CatCounter extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      count: 0
+    };
+  }
+  render() {
+    return (
+      <div className="cat-counter">
+        <Heading className="cat-heading" size={5} textColor="black">
+          I've seen {this.state.count} cats
+        </Heading>
+        <button className="cat-button" type="button" onClick={this.sawCat}>
+          {this.props.buttonText}
+        </button>
+      </div>
+    );
+  }
+  sawCat = () => {
+    this.setState({
+      count: this.state.count + 1
+    });
+  }
+}
